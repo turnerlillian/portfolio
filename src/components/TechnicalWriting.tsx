@@ -73,56 +73,54 @@ const contentTypes = [
 export function TechnicalWriting() {
   return (
     <section id="tech-writing" className="py-24">
-      
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto text-center mb-24">
-          <h1 className="text-6xl md:text-8xl mb-12 heading-futuristic">
-            TECHNICAL WRITING
-          </h1>
-          <div className="accent-line-futuristic w-32 mx-auto mb-8"></div>
-          <p className="text-xl text-alabaster max-w-4xl mx-auto leading-tight font-mono">
-            {'>'} TRANSMUTING COMPLEX TECHNICAL CONCEPTS INTO ACCESSIBLE KNOWLEDGE<br/>
-            {'>'} BRIDGING THE GAP BETWEEN MACHINE LOGIC AND HUMAN UNDERSTANDING
+          <h1 className="text-6xl md:text-8xl mb-12 heading-seaglass">Technical writing</h1>
+          <div className="accent-line-seaglass w-32 mx-auto mb-8"></div>
+          <p className="text-xl font-montserrat text-seaglass-ink/90 max-w-4xl mx-auto leading-tight">
+            Transmuting complex technical concepts into accessible knowledge<br/>
+            Bridging the gap between machine logic and human understanding
           </p>
         </div>
 
         {/* Writing Samples */}
         <div className="grid md:grid-cols-2 gap-12 mb-20">
           {writingSamples.map((sample, index) => {
-            const cardVariant = index % 3 === 0 ? 'card-variant-red' : index % 3 === 1 ? 'card-variant-teal' : 'card-variant-purple';
+            const colorClasses = ["seaglass-mint", "seaglass-blue", "seaglass-aqua", "seaglass-green", "seaglass-sand", "seaglass-cloud"];
+            const color = colorClasses[index % colorClasses.length];
             return (
-              <Card key={sample.id} className={`card-futuristic ${cardVariant} group`}>
+              <Card key={sample.id} className={`card-seaglass ${color} group`}>
                 <CardHeader>
                   <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center text-electric-yellow">
+                    <div className="flex items-center text-seaglass-accent">
                       {sample.icon}
-                      <span className="ml-3 text-sm font-black uppercase font-mono">{sample.type}</span>
+                      <span className="ml-3 text-sm font-black font-mono">{sample.type}</span>
                     </div>
-                    <Badge className="bg-deep-purple/50 text-electric-yellow border border-electric-yellow text-xs font-bold">
+                    <Badge className="bg-seaglass-badge text-seaglass-accent border border-seaglass-accent text-xs font-bold font-montserrat">
                       {sample.metrics}
                     </Badge>
                   </div>
-                  <CardTitle className="text-2xl text-electric-yellow font-black uppercase mb-3">
+                  <CardTitle className="text-2xl text-seaglass-accent font-black mb-3">
                     {sample.title}
                   </CardTitle>
-                  <CardDescription className="text-alabaster/90 font-mono text-sm leading-relaxed">
-                    {'>'} {sample.description}
+                  <CardDescription className="text-seaglass-ink/80 font-montserrat text-sm leading-relaxed">
+                    {sample.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-alabaster/80 mb-6 font-mono">
-                    {'>'} {sample.content}
+                  <p className="text-sm text-seaglass-ink/70 mb-6 font-montserrat">
+                    {sample.content}
                   </p>
                   
                   <div className="flex flex-wrap gap-3 mb-6">
                     {sample.tags.map((tag) => (
-                      <Badge key={tag} className="bg-deep-purple/30 text-electric-yellow border border-electric-yellow/50 text-xs font-bold">
+                      <Badge key={tag} className="bg-seaglass-badge text-seaglass-accent border border-seaglass-accent text-xs font-bold font-montserrat">
                         {tag.toUpperCase()}
                       </Badge>
                     ))}
                   </div>
                   
-                  <Button className="w-full btn-futuristic group-hover:btn-secondary transition-all duration-300">
+                  <Button className="btn-seaglass w-full font-montserrat">
                     VIEW SAMPLE
                     <ExternalLink className="w-5 h-5 ml-2" />
                   </Button>
@@ -135,24 +133,25 @@ export function TechnicalWriting() {
         {/* Content Types */}
         <div className="mb-20">
           <div className="text-center mb-16 relative">
-            <h3 className="text-4xl md:text-5xl mb-8 heading-futuristic">
+            <h3 className="text-4xl md:text-5xl mb-8 heading-seaglass">
               SPECIALIZATION MATRIX
             </h3>
-            <div className="accent-line-futuristic w-24 mx-auto"></div>
+            <div className="accent-line-seaglass w-24 mx-auto"></div>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contentTypes.map((type, index) => {
-              const cardVariant = index % 3 === 0 ? 'card-variant-red' : index % 3 === 1 ? 'card-variant-teal' : 'card-variant-purple';
+              const colorClasses = ["seaglass-mint", "seaglass-blue", "seaglass-aqua", "seaglass-green", "seaglass-sand", "seaglass-cloud"];
+              const color = colorClasses[index % colorClasses.length];
               return (
-                <Card key={type.title} className={`card-futuristic ${cardVariant} text-center`}>
+                <Card key={type.title} className={`card-seaglass ${color} text-center`}>
                   <CardHeader>
-                    <CardTitle className="text-lg text-electric-yellow font-black uppercase">{type.title}</CardTitle>
-                    <CardDescription className="text-alabaster/80 font-mono text-sm">{'>'} {type.description}</CardDescription>
+                    <CardTitle className="text-lg text-seaglass-accent font-black uppercase">{type.title}</CardTitle>
+                    <CardDescription className="text-seaglass-ink/80 font-montserrat text-sm">{type.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <ul className="text-sm text-alabaster/70 space-y-2 font-mono text-left">
+                    <ul className="text-sm text-seaglass-ink/70 space-y-2 font-montserrat text-left">
                       {type.examples.map((example) => (
-                        <li key={example} className="text-xs">{'>'} {example.toUpperCase()}</li>
+                        <li key={example} className="text-xs">{example.toUpperCase()}</li>
                       ))}
                     </ul>
                   </CardContent>
@@ -163,10 +162,10 @@ export function TechnicalWriting() {
         </div>
 
         {/* Featured Work */}
-        <Card className="max-w-4xl mx-auto">
+  <Card className="card-seaglass seaglass-sand max-w-4xl mx-auto">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl">Featured Documentation Project</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-2xl text-seaglass-accent font-black uppercase">Featured Documentation Project</CardTitle>
+            <CardDescription className="text-seaglass-ink/80 font-montserrat">
               Complete documentation overhaul for a B2B SaaS platform
             </CardDescription>
           </CardHeader>
@@ -180,27 +179,27 @@ export function TechnicalWriting() {
                 />
               </div>
               <div>
-                <h4 className="text-xl mb-4">Documentation Transformation</h4>
-                <p className="text-muted-foreground mb-4">
+                <h4 className="text-xl mb-4 text-seaglass-accent font-black uppercase font-montserrat">Documentation Transformation</h4>
+                <p className="text-seaglass-ink/80 font-montserrat mb-4">
                   Led a complete overhaul of technical documentation for a complex enterprise platform, 
                   resulting in significant improvements in user adoption and support efficiency.
                 </p>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <span className="font-medium text-primary">65%</span>
-                    <p className="text-muted-foreground">Reduction in support tickets</p>
+                    <span className="font-medium text-seaglass-accent">65%</span>
+                    <p className="text-seaglass-ink/70 font-montserrat">Reduction in support tickets</p>
                   </div>
                   <div>
-                    <span className="font-medium text-primary">3x</span>
-                    <p className="text-muted-foreground">Faster user onboarding</p>
+                    <span className="font-medium text-seaglass-accent">3x</span>
+                    <p className="text-seaglass-ink/70 font-montserrat">Faster user onboarding</p>
                   </div>
                   <div>
-                    <span className="font-medium text-primary">90%</span>
-                    <p className="text-muted-foreground">Developer satisfaction</p>
+                    <span className="font-medium text-seaglass-accent">90%</span>
+                    <p className="text-seaglass-ink/70 font-montserrat">Developer satisfaction</p>
                   </div>
                   <div>
-                    <span className="font-medium text-primary">200+</span>
-                    <p className="text-muted-foreground">Documentation pages</p>
+                    <span className="font-medium text-seaglass-accent">200+</span>
+                    <p className="text-seaglass-ink/70 font-montserrat">Documentation pages</p>
                   </div>
                 </div>
               </div>

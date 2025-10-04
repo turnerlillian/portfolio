@@ -11,22 +11,52 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-[var(--glass-bg)] backdrop-blur-[var(--glass-blur)] border-t border-[var(--glass-border-strong)]" 
-      style={{
-        background: 'var(--glass-bg)',
-        backdropFilter: 'blur(var(--glass-blur))',
-        borderColor: 'var(--glass-border-strong)',
-      }}>
+    <footer className="z-40" style={{
+      background: 'linear-gradient(120deg, rgba(202,240,248,0.92) 0%, rgba(186,230,253,0.92) 100%)',
+      backdropFilter: 'blur(22px) saturate(1.3)',
+  borderTop: '1px solid rgba(56, 189, 248, 0.07)',
+      boxShadow: '0 -12px 36px 0 rgba(56,189,248,0.14), 0 -2px 0 0 rgba(56,189,248,0.13) inset, 0 0 32px 0 rgba(255,255,255,0.10) inset',
+      WebkitBackdropFilter: 'blur(22px) saturate(1.3)',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+      {/* Glass highlight overlay */}
+      <div style={{
+        position: 'absolute',
+        top: 0, left: 0, right: 0, height: '40%',
+        background: 'linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 100%)',
+        pointerEvents: 'none',
+        zIndex: 1
+      }} />
       <div className="container mx-auto px-4 py-12">
         {/* Main Footer Content */}
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand & Description */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-primary-foreground">JS</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-seaglass-accent/90 to-seaglass-blue/80 border border-seaglass-ink/60 flex items-center justify-center rounded-2xl shadow-seaglass ring-2 ring-seaglass-blue/20" style={{
+                boxShadow: '0 4px 24px 0 rgba(56,189,248,0.18), 0 0 0 6px rgba(202,240,248,0.18) inset',
+                position: 'relative',
+                overflow: 'hidden',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '2.5rem',
+                minHeight: '2.5rem'
+              }}>
+                {/* Logo inner shine */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0, left: 0, right: 0, height: '55%',
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.04) 100%)',
+                  borderTopLeftRadius: '1rem',
+                  borderTopRightRadius: '1rem',
+                  pointerEvents: 'none',
+                  zIndex: 1
+                }} />
+                <span className="text-seaglass-ink font-black text-lg drop-shadow-seaglass" style={{ fontFamily: 'Fraunces, Libre Baskerville, serif', fontWeight: 700, letterSpacing: '0.04em' }}>LT</span>
               </div>
-              <span className="text-xl font-semibold">Jane Smith</span>
+              <span className="text-xl font-black heading-seaglass text-seaglass-blue drop-shadow-seaglass" style={{ fontFamily: 'Fraunces, Libre Baskerville, serif', fontWeight: 700, letterSpacing: '0.04em' }}>Lillian Turner</span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
               UX Designer & Technical Communicator creating intuitive digital experiences 

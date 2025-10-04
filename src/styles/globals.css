@@ -1,99 +1,315 @@
-@import "@fontsource/orbitron/index.css";
-@import "@fontsource/exo/index.css";
-@custom-variant dark (&:is(.dark *));
+/* --- SEAGLASS COLOR UTILITIES FOR CARDS --- */
+
+.seaglass-mint {
+  background: radial-gradient(circle at 50% 50%, var(--seaglass-mint) 70%, #d2f3ef 100%) !important;
+}
+.seaglass-blue {
+  background: radial-gradient(circle at 50% 50%, var(--seaglass-blue) 70%, #a3e3ef 100%) !important;
+}
+.seaglass-aqua {
+  background: radial-gradient(circle at 50% 50%, var(--seaglass-aqua) 70%, #b8e8e0 100%) !important;
+}
+.seaglass-green {
+  background: radial-gradient(circle at 50% 50%, var(--seaglass-green) 70%, #c7e7d0 100%) !important;
+}
+.seaglass-sand {
+  background: radial-gradient(circle at 50% 50%, var(--seaglass-sand) 70%, #f0fff6 100%) !important;
+}
+.seaglass-cloud {
+  background: radial-gradient(circle at 50% 50%, var(--seaglass-cloud) 70%, #e6f4f1 100%) !important;
+}
+
+/* --- SEAGLASS CARD & BUTTON STYLES --- */
+.card-seaglass {
+  background: linear-gradient(135deg, var(--seaglass-mint) 0%, var(--seaglass-blue) 40%, var(--seaglass-aqua) 100%);
+  background-blend-mode: lighten, overlay;
+  border-radius: var(--border-radius-soft);
+  border: 0.5px solid #ffffff !important;
+  box-shadow:
+    0 2px 16px 0 rgba(143, 214, 225, 0.18),
+    0 1.5px 8px 0 rgba(94, 170, 168, 0.10),
+    0 0.5px 0.5px 0 rgba(255,255,255,0.18) inset;
+  backdrop-filter: blur(var(--glass-blur-strong));
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+  position: relative;
+  overflow: hidden;
+  color: var(--card-foreground);
+  transition: box-shadow 0.18s, border 0.18s, background 0.18s;
+}
+.card-seaglass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 60% 20%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.card-seaglass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.10) 0%, rgba(143,214,225,0.08) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+.card-seaglass:hover, .card-seaglass:focus-within {
+  box-shadow:
+    0 4px 32px 0 rgba(143, 214, 225, 0.22),
+    0 2.5px 16px 0 rgba(94, 170, 168, 0.16),
+    0 1px 1px 0 rgba(255,255,255,0.22) inset;
+  border-color: #ffffff;
+}
+
+
+
+.btn-seaglass {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  padding: 0.7em 2.1em;
+  border-radius: 2em;
+  border: 0.5px solid #ffffff;
+  background: linear-gradient(120deg, rgba(202,240,248,0.92) 0%, rgba(186,230,253,0.92) 100%);
+  color: var(--seaglass-ink, #2e3a36);
+  box-shadow:
+    0 4px 24px 0 rgba(56,189,248,0.13),
+    0 2px 0 0 rgba(56,189,248,0.10) inset,
+    0 0 32px 0 rgba(255,255,255,0.08) inset;
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.18s, border 0.18s, background 0.18s;
+}
+.btn-seaglass::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 55%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.04) 100%);
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+  pointer-events: none;
+  z-index: 1;
+}
+.btn-seaglass:hover, .btn-seaglass:focus-visible {
+  background: linear-gradient(120deg, rgba(186,230,253,0.98) 0%, rgba(202,240,248,0.98) 100%);
+  box-shadow:
+    0 8px 32px 0 rgba(56,189,248,0.18),
+    0 4px 0 0 rgba(56,189,248,0.13) inset,
+    0 0 40px 0 rgba(255,255,255,0.12) inset;
+  border-color: #ffffff;
+  border-color: #b8e0d2;
+}
+
+/* --- NAV SEAGLASS ACTIVE TAB --- */
+.nav-seaglass-active {
+  background: radial-gradient(circle at 50% 50%, var(--seaglass-mint) 70%, #d2f3ef 100%);
+  color: #2e3a36 !important; /* seaglass-ink/dark */
+  border-radius: 1em;
+  box-shadow: 0 2px 16px 0 rgba(143, 214, 225, 0.13), 0 1.5px 8px 0 rgba(186, 230, 253, 0.10);
+  border: 1px solid #d2f3ef;
+  position: relative;
+  z-index: 2;
+}
+.skip-to-content-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 1000;
+}
+.skip-to-content-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 12px var(--seaglass-blue-dark);
+  outline: 1px solid var(--seaglass-teal);
+  outline-offset: 2px;
+}
+
+/* Navigation item - seaglass style */
+.nav-item-seaglass {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--foreground);
+  background: none;
+  border: none;
+  outline: none;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+.nav-item-seaglass.active,
+.nav-item-seaglass:focus-visible {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 0 0 2px var(--primary), 0 0 8px 2px var(--seaglass-blue-dark);
+}
+html, body {
+  font-family: var(--font-sans);
+  color: var(--foreground);
+  background: var(--background);
+  font-size: var(--font-size);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--foreground);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Ensure readable contrast for text on glass backgrounds */
+.glass, .card-futuristic, .card, .popover, .sidebar {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--border-radius-soft);
+  border: 0.5px solid #ffffff;
+  color: var(--foreground);
+}
+.nav-item-futuristic:hover:not(.active) {
+  background: var(--muted);
+  color: var(--primary);
+}
+.card-glow-group:hover, .card-glow-group:focus-within {
+  box-shadow: 0 0 0 2px var(--neon-cyan), 0 0 16px 4px var(--electric-blue-dark);
+  border-color: var(--neon-cyan);
+  background: linear-gradient(120deg, var(--deep-violet) 60%, var(--neon-cyan) 100%);
+}
+.card-glow-hover {
+  transition: color 0.2s, filter 0.2s;
+}
+.card-glow-group:hover .card-glow-hover, .card-glow-group:focus-within .card-glow-hover {
+  color: var(--neon-cyan);
+  filter: drop-shadow(0 0 6px var(--neon-cyan));
+}
+
+.logo-animate {
+  animation: logoPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate;
+}
+@keyframes logoPulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--laser-yellow), 0 0 8px 0 var(--electric-blue-dark);
+    filter: brightness(1) drop-shadow(0 0 0 var(--neon-cyan));
+  }
+  100% {
+    box-shadow: 0 0 8px 2px var(--laser-yellow), 0 0 16px 4px var(--electric-blue-dark);
+    filter: brightness(1.07) drop-shadow(0 0 4px var(--neon-cyan));
+  }
+}
+@keyframes btnFlicker {
+  0%, 100% { filter: brightness(1); }
+  10%, 30%, 50%, 70%, 90% { filter: brightness(1.08); }
+  20%, 40%, 60%, 80% { filter: brightness(0.96); }
+}
 
 :root {
-  /* Futuristic High-Contrast 7-Color Palette */
-  --color-1: #101014; /* Jet Black */
-  --color-2: #00FFF7; /* Neon Cyan */
-  --color-3: #FF1B8D; /* Vivid Magenta */
-  --color-4: #1B6DFF; /* Electric Blue */
-  --color-5: #FFF500; /* Laser Yellow */
-  --color-6: #3D1BFF; /* Deep Violet */
-  --color-7: #E0E6ED; /* Silver Mist */
+  /* Seaglass-Inspired Color Palette */
+  --color-1: #e3f6f5; /* Seaglass Mint */
+  --color-2: #b8e0d2; /* Soft Aqua */
+  --color-3: #8fd6e1; /* Misty Blue */
+  --color-4: #5eaaa8; /* Ocean Teal */
+  --color-5: #a3c9a8; /* Seafoam Green */
+  --color-6: #f6fff8; /* White Sand */
+  --color-7: #dbe7e4; /* Cloudy Glass */
 
-  /* Enhanced color variations for high contrast */
-  --jet-black: var(--color-1);
-  --neon-cyan: var(--color-2);
-  --vivid-magenta: var(--color-3);
-  --electric-blue: var(--color-4);
-  --laser-yellow: var(--color-5);
-  --deep-violet: var(--color-6);
-  --silver-mist: var(--color-7);
-  --jet-black-light: #23232a;
-  --jet-black-dark: #07070a;
-  --neon-cyan-dark: #00bfb3;
-  --vivid-magenta-dark: #b8005e;
-  --electric-blue-dark: #1246a6;
-  --laser-yellow-dark: #bfb900;
-  --deep-violet-dark: #24106b;
-  --silver-mist-dark: #bfc5cc;
-  
-  /* Futuristic design tokens */
-  --neon-glow: 0 0 20px var(--electric-yellow), 0 0 40px var(--electric-yellow);
-  --deep-shadow: 0 8px 32px rgba(41, 37, 35, 0.8);
-  --contrast-shadow: 0 4px 16px rgba(61, 11, 55, 0.6);
-  --border-radius-sharp: 0;
-  --border-radius-minimal: 0.25rem;
-  
-  /* Typography stack - bold futuristic fonts */
-  --font-sans: 'Exo', 'Inter', 'Arial Black', sans-serif;
-  --font-heading: 'Orbitron', 'Exo', 'Inter', 'Arial Black', sans-serif;
+  /* Seaglass color variations */
+  --seaglass-mint: var(--color-1);
+  --seaglass-aqua: var(--color-2);
+  --seaglass-blue: var(--color-3);
+  --seaglass-teal: var(--color-4);
+  --seaglass-green: var(--color-5);
+  --seaglass-sand: var(--color-6);
+  --seaglass-cloud: var(--color-7);
+  --seaglass-mint-dark: #b5d9d6;
+  --seaglass-aqua-dark: #8fc3b8;
+  --seaglass-blue-dark: #6bb7c7;
+  --seaglass-teal-dark: #3e7c7b;
+  --seaglass-green-dark: #7fa88a;
+  --seaglass-sand-dark: #e2f1e8;
+  --seaglass-cloud-dark: #b7cfc9;
+
+  /* Seaglass design tokens */
+  --frosted-glass-bg: rgba(255, 255, 255, 0.55);
+  --frosted-glass-bg-strong: rgba(255, 255, 255, 0.75);
+  --frosted-glass-blur: 16px;
+  --frosted-glass-border: rgba(143, 214, 225, 0.25);
+  --frosted-glass-border-strong: rgba(94, 170, 168, 0.35);
+  --border-radius-soft: 1rem;
+  --border-radius-minimal: 0.5rem;
+
+  /* Typography stack - Seaglass theme fonts */
+  --font-sans: 'Manrope', 'Montserrat', 'Inter', Arial, sans-serif;
+  --font-heading: 'Fraunces', 'Libre Baskerville', 'Montserrat', serif;
   --font-mono: 'JetBrains Mono', 'Fira Mono', 'Courier New', monospace;
   --font-size: 16px;
-  
-  /* Semantic colors using new palette */
-  --background: #05050a; /* Ultra deep black for maximum contrast */
-  --foreground: #F4F6FB; /* Lighter, high-contrast text */
-  --card: #18182a; /* Darker card background for contrast */
-  --card-foreground: #F4F6FB;
-  --card-accent: var(--laser-yellow); /* Laser Yellow accents */
-  --popover: #18182a;
-  --popover-foreground: #F4F6FB;
-  --primary: var(--laser-yellow); /* Laser Yellow primary */
-  --primary-foreground: var(--jet-black); /* Jet Black on yellow */
-  --secondary: var(--neon-cyan); /* Neon Cyan secondary */
-  --secondary-foreground: var(--jet-black); /* Jet Black on cyan */
-  --muted: #23233a;
-  --muted-foreground: #bfc5cc;
-  --accent: var(--electric-blue); /* Electric Blue accent */
-  --accent-foreground: var(--silver-mist); /* Silver Mist accent text */
-  --destructive: var(--vivid-magenta); /* Vivid Magenta destructive */
-  --destructive-foreground: var(--silver-mist); /* Silver Mist on destructive */
-  --border: var(--deep-violet-dark); /* Deep Violet borders */
-  --border-neon: var(--laser-yellow); /* Laser Yellow neon borders */
-  --input: var(--deep-violet-dark); /* Deep Violet input */
-  --input-background: var(--jet-black);
-  --switch-background: var(--neon-cyan);
-  --font-weight-medium: 700;
-  --font-weight-normal: 500;
-  --ring: var(--electric-yellow); /* Electric Yellow focus ring */
-  
-  /* Chart colors using new palette */
+
+  /* Semantic colors using seaglass palette */
+  --background: var(--seaglass-sand);
+  --foreground: #2e3a36;
+  --card: var(--frosted-glass-bg);
+  --card-foreground: #2e3a36;
+  --card-accent: var(--seaglass-teal);
+  --popover: var(--frosted-glass-bg-strong);
+  --popover-foreground: #2e3a36;
+  --primary: var(--seaglass-teal);
+  --primary-foreground: #fff;
+  --secondary: var(--seaglass-blue);
+  --secondary-foreground: #2e3a36;
+  --muted: var(--seaglass-cloud);
+  --muted-foreground: #5eaaa8;
+  --accent: var(--seaglass-mint);
+  --accent-foreground: #2e3a36;
+  --destructive: #e57373;
+  --destructive-foreground: #fff;
+  --border: var(--frosted-glass-border);
+  --border-strong: var(--frosted-glass-border-strong);
+  --input: var(--seaglass-cloud);
+  --input-background: var(--frosted-glass-bg);
+  --switch-background: var(--seaglass-blue);
+  --font-weight-medium: 600;
+  --font-weight-normal: 400;
+  --ring: var(--seaglass-blue);
+
+  /* Chart colors using seaglass palette */
   --chart-1: var(--color-1);
   --chart-2: var(--color-2);
   --chart-3: var(--color-3);
   --chart-4: var(--color-4);
   --chart-5: var(--color-5);
   --radius: 1rem;
-  
-  /* Updated glass variables with new colors */
-  --glass-bg: rgba(15, 0, 17, 0.85);
-  --glass-bg-strong: rgba(15, 0, 17, 0.95);
-  --glass-blur: 8px;
-  --glass-blur-strong: 12px;
-  --glass-border: rgba(85, 55, 57, 0.2);
-  --glass-border-strong: rgba(85, 55, 57, 0.35);
-  
+
+  /* Updated glass variables for seaglass */
+  --glass-bg: var(--frosted-glass-bg);
+  --glass-bg-strong: var(--frosted-glass-bg-strong);
+  --glass-blur: var(--frosted-glass-blur);
+  --glass-blur-strong: 24px;
+  --glass-border: var(--frosted-glass-border);
+  --glass-border-strong: var(--frosted-glass-border-strong);
+
   /* Sidebar colors */
-  --sidebar: rgba(255, 248, 235, 0.8);
-  --sidebar-foreground: var(--color-5);
-  --sidebar-primary: var(--color-1);
-  --sidebar-primary-foreground: var(--color-6);
-  --sidebar-accent: var(--color-3);
-  --sidebar-accent-foreground: var(--color-6);
-  --sidebar-border: rgba(85, 55, 57, 0.15);
-  --sidebar-ring: var(--color-1);
+  --sidebar: var(--frosted-glass-bg-strong);
+  --sidebar-foreground: var(--seaglass-teal);
+  --sidebar-primary: var(--seaglass-blue);
+  --sidebar-primary-foreground: var(--seaglass-green);
+  --sidebar-accent: var(--seaglass-mint);
+  --sidebar-accent-foreground: var(--seaglass-teal);
+  --sidebar-border: var(--frosted-glass-border);
+  --sidebar-ring: var(--seaglass-blue);
 }
 
 .dark {
@@ -178,7 +394,7 @@
   * {
   border-color: var(--border);
   outline-color: var(--ring);
-  outline-width: 2.5px;
+  outline-width: 1px;
   outline-offset: 2px;
   }
 
@@ -199,18 +415,18 @@
  * Futuristic typography system with bold, all-caps headings
  */
 @layer base {
-  /* BOLD FUTURISTIC TYPOGRAPHY */
+  /* Seaglass Headings - readable, no gradient */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading) !important;
     font-weight: 900 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.1em !important;
-    background: linear-gradient(90deg, var(--neon-cyan) 0%, var(--vivid-magenta) 50%, var(--laser-yellow) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 0 8px var(--electric-blue)) drop-shadow(0 0 16px var(--laser-yellow));
-  /* animation removed */
+    color: #1a2321 !important;
+    letter-spacing: 0.01em !important;
+    text-transform: none !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    background-clip: initial !important;
+    filter: none !important;
   }
 }
 
@@ -222,6 +438,9 @@
 }
 .btn-futuristic:hover, .btn-primary:hover, .btn-secondary:hover,
 .btn-futuristic:focus-visible, .btn-primary:focus-visible, .btn-secondary:focus-visible {
+}
+.btn-primary:hover {
+  animation: btnFlicker 0.7s linear 1;
   box-shadow: 0 0 8px 2px var(--laser-yellow), 0 0 32px 4px var(--electric-blue-dark);
   border-color: var(--vivid-magenta);
   background: linear-gradient(90deg, var(--neon-cyan) 0%, var(--vivid-magenta) 100%);
@@ -230,7 +449,7 @@
 .card-futuristic {
   box-shadow: 0 2px 24px 0 var(--deep-violet-dark), 0 0 0 2px var(--laser-yellow);
   background: linear-gradient(120deg, var(--deep-violet) 60%, var(--jet-black) 100%);
-  border: 2px solid var(--laser-yellow);
+  border: 1px solid var(--laser-yellow);
   /* transition removed */
 }
 .card-futuristic:hover, .card-futuristic:focus-within {
@@ -299,7 +518,7 @@ html {
   }
   .focus-glow:focus-visible {
   box-shadow: 0 0 0 3px var(--electric-yellow), 0 4px 12px var(--electric-yellow-light);
-  outline: 2.5px solid var(--electric-yellow);
+  outline: 1px solid var(--electric-yellow);
   }
   /* .card-animate removed */
   .card-animate:hover {
@@ -341,6 +560,15 @@ html {
 
 /* Contemporary Design Classes */
 @layer components {
+  /* Seaglass Heading - Libre Baskerville Black */
+  .heading-seaglass {
+    color: #1a2321;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    text-shadow: none;
+    position: relative;
+  }
   /* Enhanced Color Classes */
   .bg-olive-gold { background-color: var(--olive-gold); }
   .bg-olive-gold-light { background-color: var(--olive-gold-light); }
@@ -360,7 +588,7 @@ html {
   /* Contemporary Card Styles */
   .card-contemporary {
     background: var(--background);
-    border: 2px solid var(--border-subtle);
+  border: 1px solid var(--border-subtle);
     border-radius: var(--border-radius-modern);
     box-shadow: var(--contemporary-shadow);
   /* transition removed */
@@ -387,19 +615,19 @@ html {
   .card-maroon {
     background: var(--dark-maroon-light);
     color: var(--color-6);
-    border: 2px solid var(--dark-maroon-dark);
+  border: 1px solid var(--dark-maroon-dark);
   }
   
   .card-olive {
     background: var(--olive-gold-light);
     color: var(--color-5);
-    border: 2px solid var(--olive-gold-dark);
+  border: 1px solid var(--olive-gold-dark);
   }
   
   .card-brown {
     background: var(--warm-brown-light);
     color: var(--color-6);
-    border: 2px solid var(--warm-brown-dark);
+  border: 1px solid var(--warm-brown-dark);
   }
   
   /* Modern Button Styles */

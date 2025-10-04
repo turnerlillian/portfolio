@@ -91,70 +91,68 @@ const caseStudies = [
 export function UXCaseStudies() {
   return (
     <section className="py-24 relative overflow-hidden">
-      
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24">
-            <h1 className="text-6xl md:text-8xl mb-12 heading-futuristic">
-              UX CASE STUDIES
+            <h1 className="text-6xl md:text-8xl mb-12 heading-seaglass">
+              UX case studies
             </h1>
-            <div className="accent-line-futuristic w-32 mx-auto mb-8"></div>
-            <p className="text-xl text-alabaster max-w-4xl mx-auto leading-tight font-mono">
-              {'>'} BEHOLD THE MANIFESTATIONS OF TECHNO-MYSTICAL CRAFT<br/>
-              {'>'} EACH PROJECT A PORTAL TO ENHANCED HUMAN EXPERIENCE
+            <div className="accent-line-seaglass w-32 mx-auto mb-8"></div>
+            <p className="text-xl text-seaglass-ink max-w-4xl mx-auto leading-tight font-montserrat">
+              Behold the manifestations of design craft<br/>
+              Each project a portal to enhanced human experience
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-12">
             {caseStudies.map((study, index) => {
-              const cardVariant = index % 3 === 0 ? 'card-variant-red' : index % 3 === 1 ? 'card-variant-teal' : 'card-variant-purple';
+              const colorClasses = ["seaglass-mint", "seaglass-blue", "seaglass-aqua", "seaglass-green", "seaglass-sand", "seaglass-cloud"];
+              const color = colorClasses[index % colorClasses.length];
               return (
-                <Card key={study.id} className={`card-futuristic ${cardVariant} h-full group`}>
+                <Card key={study.id} className={`card-seaglass h-full group ${color}`}>
                   <div className="aspect-video relative overflow-hidden">
                     <ImageWithFallback
                       src={study.image}
                       alt={study.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter contrast-110"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-4 right-4">
-                      <Badge className="bg-electric-yellow text-dark-charcoal font-bold border border-orange-red">
+                      <Badge className="bg-seaglass-accent text-seaglass-ink font-bold border border-seaglass-green font-montserrat">
                         {study.timeline}
                       </Badge>
                     </div>
                   </div>
                   <CardHeader className="p-8">
-                    <CardTitle className="text-2xl mb-4 text-electric-yellow font-black uppercase" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    <CardTitle className="text-2xl mb-4 text-seaglass-accent font-black uppercase font-montserrat">
                       {study.title}
                     </CardTitle>
-                    <CardDescription className="text-alabaster/90 leading-relaxed font-mono text-sm">
-                      {'>'} {study.description}
+                    <CardDescription className="text-seaglass-ink/90 leading-relaxed font-montserrat text-sm">
+                      {study.description}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="p-8 pt-0 space-y-6">
                     <div className="flex flex-wrap gap-3">
                       {study.tags.slice(0, 3).map((tag) => (
-                        <Badge key={tag} className="bg-deep-purple/50 text-electric-yellow border border-electric-yellow text-xs font-bold">
+                        <Badge key={tag} className="bg-seaglass-badge text-seaglass-accent border border-seaglass-accent text-xs font-bold font-montserrat">
                           {tag.toUpperCase()}
                         </Badge>
                       ))}
                     </div>
-                    
-                    <div className="grid grid-cols-3 gap-4 text-sm font-mono">
-                      <div className="flex items-center gap-2 text-electric-yellow">
+                    <div className="grid grid-cols-3 gap-4 text-sm font-montserrat">
+                      <div className="flex items-center gap-2 text-seaglass-accent">
                         <Clock className="w-4 h-4" />
                         <span>{study.timeline}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-electric-yellow">
+                      <div className="flex items-center gap-2 text-seaglass-accent">
                         <Users className="w-4 h-4" />
                         <span>{study.team}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-orange-red">
+                      <div className="flex items-center gap-2 text-seaglass-green">
                         <TrendingUp className="w-4 h-4" />
                         <span className="text-xs font-bold">{study.impact.split(' ')[0]}</span>
                       </div>
                     </div>
-                    
-                    <Button className="w-full mt-8 btn-futuristic group-hover:btn-secondary transition-all duration-300">
+                    <Button className="w-full mt-8 btn-seaglass group-hover:bg-seaglass-green/80 transition-all duration-300 font-montserrat">
                       VIEW PROJECT
                       <ExternalLink className="w-5 h-5 ml-2" />
                     </Button>

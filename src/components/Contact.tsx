@@ -33,25 +33,25 @@ const socialLinks = [
     name: "LinkedIn",
     icon: <Linkedin className="w-5 h-5" />,
     href: "#",
-    description: "Professional network and career updates"
+  description: "Professional network and career updates"
   },
   {
     name: "GitHub",
     icon: <Github className="w-5 h-5" />,
     href: "#",
-    description: "Code samples and technical projects"
+  description: "Code samples and technical projects"
   },
   {
     name: "Dribbble",
     icon: <ExternalLink className="w-5 h-5" />,
     href: "#",
-    description: "Design portfolio and visual work"
+  description: "Design portfolio and visual work"
   },
   {
     name: "Medium",
     icon: <ExternalLink className="w-5 h-5" />,
     href: "#",
-    description: "Writing and thought leadership"
+  description: "Writing and thought leadership"
   }
 ];
 
@@ -87,33 +87,27 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-24">
-      
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-6xl mx-auto text-center mb-24">
-          <h1 className="text-6xl md:text-8xl mb-12 heading-futuristic">
-            CONTACT
-          </h1>
-          <div className="accent-line-futuristic w-32 mx-auto mb-8"></div>
-          <p className="text-xl text-alabaster max-w-4xl mx-auto leading-tight font-mono">
-            {'>'} READY TO COLLABORATE ON REVOLUTIONARY DIGITAL EXPERIENCES<br/>
-            {'>'} TRANSMIT YOUR VISION - LET'S BUILD THE IMPOSSIBLE
-          </p>
-        </div>
 
         <div className="grid lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="card-futuristic card-variant-purple">
+            <Card className="card-seaglass seaglass-mint">
               <CardHeader>
-                <CardTitle className="text-2xl text-electric-yellow font-black uppercase">
-                  TRANSMISSION PROTOCOL
-                </CardTitle>
-              </CardHeader>
+                  <CardTitle className="text-2xl heading-seaglass">
+                    Contact form
+                  </CardTitle>
+                  <div className="accent-line-seaglass w-16 mx-auto mb-4"></div>
+                  <p className="font-montserrat text-seaglass-ink/90 text-lg mt-2 text-center">
+                    Get in touch for collaborations, project inquiries, or just to say hello.<br/>
+                    I respond within 24 hours.
+                  </p>
+                </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-3">
-                      <Label htmlFor="name" className="text-electric-yellow font-mono font-bold uppercase text-sm">Name</Label>
+                      <Label htmlFor="name" className="text-seaglass-accent font-montserrat font-bold text-sm">Name</Label>
                       <Input
                         id="name"
                         name="name"
@@ -121,12 +115,12 @@ export function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        placeholder="Your designation"
-                        className="bg-dark-charcoal/50 border-electric-yellow text-off-white placeholder-off-white/50 font-mono"
+                        placeholder="Your name"
+                        className="bg-seaglass-bg border-seaglass-accent text-seaglass-ink placeholder-seaglass-ink/50 font-montserrat"
                       />
                     </div>
                     <div className="space-y-3">
-                      <Label htmlFor="email" className="text-electric-yellow font-mono font-bold uppercase text-sm">Email</Label>
+                      <Label htmlFor="email" className="text-seaglass-accent font-montserrat font-bold uppercase text-sm">Email</Label>
                       <Input
                         id="email"
                         name="email"
@@ -134,14 +128,13 @@ export function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        placeholder="your.signal@domain.com"
-                        className="bg-dark-charcoal/50 border-electric-yellow text-alabaster placeholder-alabaster/50 font-mono"
+                        placeholder="your@email.com"
+                        className="bg-seaglass-bg border-seaglass-accent text-seaglass-ink placeholder-seaglass-ink/50 font-montserrat"
                       />
                     </div>
                   </div>
-                  
                   <div className="space-y-3">
-                    <Label htmlFor="subject" className="text-electric-yellow font-mono font-bold uppercase text-sm">Subject</Label>
+                    <Label htmlFor="subject" className="text-seaglass-accent font-montserrat font-bold uppercase text-sm">Subject</Label>
                     <Input
                       id="subject"
                       name="subject"
@@ -149,25 +142,23 @@ export function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      placeholder="Mission parameters"
-                      className="bg-dark-charcoal/50 border-electric-yellow text-alabaster placeholder-alabaster/50 font-mono"
+                      placeholder="Subject"
+                      className="bg-seaglass-bg border-seaglass-accent text-seaglass-ink placeholder-seaglass-ink/50 font-montserrat"
                     />
                   </div>
-                  
                   <div className="space-y-3">
-                    <Label htmlFor="message" className="text-electric-yellow font-mono font-bold uppercase text-sm">Message</Label>
+                    <Label htmlFor="message" className="text-seaglass-accent font-montserrat font-bold uppercase text-sm">Message</Label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      placeholder="Transmit your vision, requirements, and collaborative intentions..."
-                      className="min-h-[150px] bg-dark-charcoal/50 border-electric-yellow text-alabaster placeholder-alabaster/50 font-mono resize-none"
+                      placeholder="Your message..."
+                      className="min-h-[150px] bg-seaglass-bg border-seaglass-accent text-seaglass-ink placeholder-seaglass-ink/50 font-montserrat resize-none"
                     />
                   </div>
-                  
-                  <Button type="submit" className="w-full btn-futuristic text-lg py-4">
+                  <Button type="submit" className="w-full btn-seaglass text-lg py-4 font-montserrat">
                     <Send className="w-5 h-5 mr-3" />
                     SEND MESSAGE
                   </Button>
@@ -178,81 +169,75 @@ export function Contact() {
 
           {/* Contact Information */}
           <div className="space-y-8">
-            <Card className="card-futuristic card-variant-red">
+            <Card className="card-seaglass seaglass-blue">
               <CardHeader>
-                <CardTitle className="text-xl text-electric-yellow font-black uppercase">
-                  DIRECT CHANNELS
-                </CardTitle>
+                <CardTitle className="text-xl heading-seaglass">CONTACT INFO</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <a
                     key={index}
                     href={info.href}
-                    className="flex items-center space-x-4 p-4 rounded-lg bg-dark-charcoal/30 hover:bg-electric-yellow/10 transition-all duration-300 border border-electric-yellow/20 group"
+                    className="flex items-center space-x-4 p-4 rounded-lg bg-seaglass-bg/60 hover:bg-seaglass-accent/10 transition-all duration-300 border border-seaglass-accent/20 group"
                   >
-                    <div className="text-electric-yellow text-xl group-hover:scale-110 transition-transform">
+                    <div className="text-seaglass-accent text-xl group-hover:scale-110 transition-transform">
                       {info.icon}
                     </div>
                     <div>
-                      <p className="text-xs text-off-white/70 font-mono uppercase">{info.label}</p>
-                      <p className="font-bold text-electric-yellow font-mono">{info.value}</p>
+                      <p className="text-xs text-seaglass-ink/70 font-montserrat uppercase">{info.label}</p>
+                      <p className="font-bold text-seaglass-accent font-montserrat">{info.value}</p>
                     </div>
                   </a>
                 ))}
               </CardContent>
             </Card>
 
-            <Card className="card-futuristic card-variant-teal">
+            <Card className="card-seaglass seaglass-aqua">
               <CardHeader>
-                <CardTitle className="text-xl text-electric-yellow font-black uppercase">
-                  NETWORK NODES
-                </CardTitle>
+                <CardTitle className="text-xl heading-seaglass">SOCIAL LINKS</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {socialLinks.map((link, index) => (
                   <a
                     key={index}
                     href={link.href}
-                    className="flex items-center justify-between p-4 rounded-lg bg-dark-charcoal/30 hover:bg-electric-yellow/10 transition-all duration-300 border border-electric-yellow/20 group"
+                    className="flex items-center justify-between p-4 rounded-lg bg-seaglass-bg/60 hover:bg-seaglass-accent/10 transition-all duration-300 border border-seaglass-accent/20 group"
                   >
                     <div className="flex items-center space-x-4">
-                      <div className="text-electric-yellow text-lg group-hover:scale-110 transition-transform">{link.icon}</div>
+                      <div className="text-seaglass-accent text-lg group-hover:scale-110 transition-transform">{link.icon}</div>
                       <div>
-                        <p className="font-black text-electric-yellow uppercase text-sm">{link.name}</p>
-                        <p className="text-xs text-alabaster/70 font-mono">{'>'} {link.description}</p>
+                        <p className="font-black text-seaglass-accent uppercase text-sm font-montserrat">{link.name}</p>
+                        <p className="text-xs text-seaglass-ink/70 font-montserrat">{link.description.replace(/>/g, '').replace(/\s*\n\s*/g, ' ').trim()}</p>
                       </div>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-electric-yellow group-hover:scale-110 transition-transform" />
+                    <ExternalLink className="w-4 h-4 text-seaglass-accent group-hover:scale-110 transition-transform" />
                   </a>
                 ))}
               </CardContent>
             </Card>
 
-            <Card className="card-futuristic card-variant-purple">
+            <Card className="card-seaglass seaglass-green">
               <CardHeader>
-                <CardTitle className="text-xl text-electric-yellow font-black uppercase">
-                  SYSTEM STATUS
-                </CardTitle>
+                <CardTitle className="text-xl heading-seaglass">STATUS</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between p-3 border-b border-electric-yellow/20">
-                    <span className="text-alabaster/70 font-mono text-sm">STATUS</span>
-                    <span className="text-teal-green font-bold font-mono uppercase text-sm">ONLINE</span>
+                  <div className="flex items-center justify-between p-3 border-b border-seaglass-accent/20">
+                    <span className="text-seaglass-ink/70 font-montserrat text-sm">STATUS</span>
+                    <span className="text-seaglass-green font-bold font-montserrat uppercase text-sm">ONLINE</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 border-b border-electric-yellow/20">
-                    <span className="text-alabaster/70 font-mono text-sm">RESPONSE TIME</span>
-                    <span className="text-electric-yellow font-mono text-sm">{'<'} 24 HOURS</span>
+                  <div className="flex items-center justify-between p-3 border-b border-seaglass-accent/20">
+                    <span className="text-seaglass-ink/70 font-montserrat text-sm">RESPONSE TIME</span>
+                    <span className="text-seaglass-accent font-montserrat text-sm">&lt; 24 HOURS</span>
                   </div>
                   <div className="flex items-center justify-between p-3">
-                    <span className="text-alabaster/70 font-mono text-sm">TIME ZONE</span>
-                    <span className="text-electric-yellow font-mono text-sm">PST (UTC-8)</span>
+                    <span className="text-seaglass-ink/70 font-montserrat text-sm">TIME ZONE</span>
+                    <span className="text-seaglass-accent font-montserrat text-sm">PST (UTC-8)</span>
                   </div>
                 </div>
-                <p className="text-xs text-alabaster/70 mt-6 font-mono leading-relaxed">
-                  {'>'} CURRENTLY ACCEPTING NEW MISSIONS AND COLLABORATIONS<br/>
-                  {'>'} READY TO BUILD THE IMPOSSIBLE TOGETHER
+                <p className="text-xs text-seaglass-ink/70 mt-6 font-montserrat leading-relaxed">
+                  CURRENTLY ACCEPTING NEW MISSIONS AND COLLABORATIONS<br/>
+                  READY TO BUILD THE IMPOSSIBLE TOGETHER
                 </p>
               </CardContent>
             </Card>

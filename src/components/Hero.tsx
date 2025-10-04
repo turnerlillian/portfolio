@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Linkedin, Github } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
 
 export function Hero() {
@@ -10,13 +10,13 @@ export function Hero() {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto text-center mb-24">
-          <h1 className="text-6xl md:text-8xl mb-12 heading-futuristic">
-            JANE SMITH
+          <h1 className="text-6xl md:text-8xl mb-12 heading-seaglass">
+            Jane Smith
           </h1>
-          <div className="accent-line-futuristic w-32 mx-auto mb-8"></div>
-          <p className="text-xl text-alabaster max-w-4xl mx-auto leading-tight font-mono">
-            {'>'} DIGITAL ARCHITECT & UX DESIGNER<br/>
-            {'>'} CRAFTING EXPERIENCES THAT TRANSCEND THE ORDINARY
+          <div className="accent-line-seaglass w-32 mx-auto mb-8"></div>
+          <p className="font-montserrat text-seaglass-ink/90 text-lg max-w-4xl mx-auto leading-tight">
+            Digital architect & UX designer<br/>
+            Crafting experiences that transcend the ordinary
           </p>
         </div>
 
@@ -30,15 +30,14 @@ export function Hero() {
           
         <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
           <Link to="/ux-case-studies">
-            <Button size="lg" className="min-w-[240px] btn-futuristic">
-              VIEW PORTFOLIO
+            <Button size="lg" className="min-w-[240px] btn-seaglass font-montserrat">
+              View portfolio
             </Button>
           </Link>
           <Link to="/contact">
-            <Button size="lg" className="min-w-[240px] btn-secondary">
-              <Mail className="w-5 h-5 mr-3" />
-              GET IN TOUCH
-            </Button>
+              <Button size="lg" className="min-w-[240px] btn-seaglass font-montserrat">
+                Get in touch
+              </Button>
           </Link>
         </div>
         
